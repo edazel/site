@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Меню и цены — Полуфабрикаты Зеленоград</title>
+<meta name="description" content="Меню и цены домашних полуфабрикатов: блинчики с мясом и творогом (650 ₽ за 600 г), котлеты домашние (850 ₽ за 1 кг), куриные отбивные, зразы, фрикадельки, творожные галеты. Поиск, фильтры, наборы со скидкой и оформление заказа.">
+<meta name="theme-color" content="#234530">
+<link rel="icon" type="image/jpeg" href="images/logo.jpg">
+<link rel="apple-touch-icon" href="images/logo.jpg">
+<script>try{var t=localStorage.getItem('pz_theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="css/style.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Меню — Полуфабрикаты Зеленоград">
+<meta property="og:description" content="13 позиций и 4 набора со скидкой. Домашние полуфабрикаты ручной работы, Зеленоград, 20-й район.">
+<meta property="og:image" content="images/hero.jpg">
+</head>
+<body>
+
+<div id="pp-ticker"></div>
+<div id="pp-header"></div>
+
+<main>
+<section class="page-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a><span>›</span>Меню</nav>
+    <p class="eyebrow">13 позиций · 4 набора</p>
+    <h1 class="page-title">Всё меню <span class="hand">с ценами</span></h1>
+    <p class="page-lead">Взвешиваю при вас. Состав и хранение — в каждой карточке, «как готовить» — снизу фото. Ищите нужное или отфильтруйте по категориям.</p>
+  </div>
+</section>
+
+<section class="section catalog" style="padding-top:2.2rem">
+  <div class="container">
+    <div class="catalog-tools">
+      <label class="search-field">
+        <svg class="icon"><use href="#i-search"/></svg>
+        <input type="search" id="catalogSearch" placeholder="Найти блюдо: «котлеты», «творог»…" aria-label="Поиск по меню">
+      </label>
+      <div class="chip-row" id="chipRow" role="tablist" aria-label="Категории"></div>
+    </div>
+    <p class="catalog-empty" id="catalogEmpty" hidden>Ничего не нашлось. Попробуйте «котлет», «блин» или «творог» — или очистите поиск.</p>
+    <div class="catalog-grid" id="catalogGrid" aria-live="polite"></div>
+  </div>
+</section>
+<div class="rushnyk" role="presentation"></div>
+
+<!-- ══════════ НАБОРЫ СО СКИДКОЙ ══════════ -->
+<section class="section bundles" id="bundles">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Собрано мной, взвешено честно</p>
+        <h2 class="section-title">Готовые наборы <span class="hand">выгоднее поштучно</span></h2>
+      </div>
+      <p class="bundles-note">Продегустированы Еленой · состав фиксирован</p>
+    </div>
+    <div class="bundle-row" id="bundlesRow"></div>
+  </div>
+</section>
+<div class="rushnyk" role="presentation"></div>
+
+<!-- ══════════ ПОРЦИОННЫЙ ГИД ══════════ -->
+<section class="section portion-guide" id="portions">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Чтобы не прогадала с количеством</p>
+        <h2 class="section-title">На сколько хватит <span class="hand">набора</span></h2>
+      </div>
+    </div>
+    <div class="portion-grid" id="portionGuide"></div>
+  </div>
+</section>
+</main>
+
+<div id="pp-footer"></div>
+<div id="pp-cart"></div>
+
+<script src="js/partials.js"></script>
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
