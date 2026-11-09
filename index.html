@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Полуфабрикаты Зеленоград — домашние блинчики, котлеты и галеты с доставкой</title>
+<meta name="description" content="Домашние полуфабрикаты ручной работы в Зеленограде: блинчики с мясом и творогом, котлеты домашние, куриные отбивные, зразы, фрикадельки, творожные галеты. Натуральный состав, шоковая заморозка, оплата при получении. Самовывоз бесплатно из 20-го района; доставка — Яндекс Доставкой за счёт покупателя.">
+<meta name="theme-color" content="#234530">
+<link rel="icon" type="image/jpeg" href="images/logo.jpg">
+<link rel="apple-touch-icon" href="images/logo.jpg">
+<script>try{var t=localStorage.getItem('pz_theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="css/style.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Полуфабрикаты Зеленоград — домашнее, как у мамы">
+<meta property="og:description" content="Блинчики, котлеты, зразы, фрикадельки и творожные галеты — вручную, из натуральных продуктов, с шоковой заморозкой. Самовывоз бесплатно, доставка — Яндекс Доставкой.">
+<meta property="og:image" content="images/hero.jpg">
+</head>
+<body>
+
+<div id="pp-ticker"></div>
+<div id="pp-header"></div>
+
+<main>
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text reveal">
+      <span class="hero-pill"><span class="pulse-dot"></span>Готовлю дома · Зеленоград, 20-й район</span>
+      <h1 class="hero-title">Домашнее —<br>вместо <span class="hl">магазинного</span></h1>
+      <p class="hero-hand">леплю вручную и готовлю с душой</p>
+      <p class="hero-lead">Блинчики, котлеты, зразы, фрикадельки и творожные галеты из натуральных продуктов. Никаких консервантов и «магазинного» вкуса — только рецепт, проверенный годами собственной кухни.</p>
+      <div class="hero-cta">
+        <a href="menu.html" class="btn btn-primary btn-lg">Смотреть меню и цены
+          <svg class="icon"><use href="#i-arrow-right"/></svg>
+        </a>
+        <a href="https://t.me/elenafrol" class="btn btn-ghost btn-lg" target="_blank" rel="noopener">
+          <svg class="icon"><use href="#i-tg"/></svg>Написать Елене
+        </a>
+      </div>
+      <ul class="hero-facts">
+        <li><svg class="icon"><use href="#i-leaf"/></svg>100% натуральный состав</li>
+        <li><svg class="icon"><use href="#i-snow"/></svg>Шоковая заморозка</li>
+        <li><svg class="icon"><use href="#i-wallet"/></svg>Оплата при получении</li>
+      </ul>
+    </div>
+
+    <div class="hero-visual reveal" style="--reveal-delay:.15s">
+      <div class="arch-frame">
+        <img src="images/hero.jpg" alt="Домашняя доска с блинчиками, сырниками, котлетами и фрикадельками на сером вафельном полотенце" width="1376" height="768" fetchpriority="high">
+      </div>
+
+      <div class="rotating-badge" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <defs><path id="circlePath" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+          <circle cx="60" cy="60" r="58" fill="var(--green-deep)"/>
+          <circle cx="60" cy="60" r="30" fill="var(--terracotta)"/>
+          <text><textPath href="#circlePath">НАТУРАЛЬНЫЙ СОСТАВ • БЕЗ КОНСЕРВАНТОВ • ДОМАШНЕЕ • С ЛЮБОВЬЮ •&#160;</textPath></text>
+          <text x="60" y="57" text-anchor="middle" class="badge-center">100%</text>
+          <text x="60" y="74" text-anchor="middle" class="badge-center-small">дом</text>
+        </svg>
+      </div>
+
+      <!-- ЖИВАЯ карточка «Сегодня в наличии» — редактируется из панели /admin/ -->
+      <div class="stock-card" id="stockCard">
+        <p class="stock-title"><svg class="icon"><use href="#i-check"/></svg>Сегодня в наличии</p>
+        <ul id="stockList"></ul>
+        <p class="stock-updated" id="stockUpdated">подгружаем список…</p>
+        <button class="stock-refresh" id="stockRefreshBtn" type="button"><svg class="icon"><use href="#i-refresh"/></svg>обновить список</button>
+        <a href="menu.html" class="stock-more">…и все позиции в меню <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="rushnyk" role="presentation"></div>
+
+<!-- ══════════ ХИТЫ ПРОДАЖ ══════════ -->
+<section class="section catalog" id="hits">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Что чаще всего забирают</p>
+        <h2 class="section-title">Хиты моей кухни</h2>
+      </div>
+      <a href="menu.html" class="btn btn-primary">Всё меню: 13 позиций и 4 набора
+        <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+    </div>
+    <div class="catalog-grid" id="hitsGrid" aria-live="polite"></div>
+  </div>
+</section>
+<div class="rushnyk" role="presentation"></div>
+
+<!-- ══════════ ДОСТАВКА — кратко ══════════ -->
+<section class="section delivery" id="delivery-teaser">
+  <div class="container">
+    <p class="eyebrow">Как получить</p>
+    <h2 class="section-title">Самовывоз — бесплатно.<br>Доставка — <span class="hand">Яндекс Доставкой</span></h2>
+    <div class="delivery-cards">
+      <div class="delivery-option reveal">
+        <span class="delivery-tag-free">Бесплатно</span>
+        <div class="delivery-option-head">
+          <div class="delivery-option-icon"><svg class="icon" style="width:28px;height:28px"><use href="#i-pin"/></svg></div>
+          <h3>Самовывоз</h3>
+        </div>
+        <p class="delivery-price">0 ₽ · Зеленоград, 20-й район</p>
+        <ul class="delivery-list">
+          <li><svg class="icon"><use href="#i-check"/></svg>Заберёте в удобный день и час — как договоримся</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Соберу заказ специально к вашему приходу</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Проверите при получении — оплата после осмотра</li>
+        </ul>
+      </div>
+      <div class="delivery-option yandex reveal" style="--reveal-delay:.12s">
+        <span class="delivery-tag-paid">За счёт покупателя</span>
+        <div class="delivery-option-head">
+          <div class="delivery-option-icon"><img src="images/yandex-go.png" alt="Яндекс Go" width="48" height="48"></div>
+          <h3>Яндекс Доставка</h3>
+        </div>
+        <p class="delivery-price">По тарифам Яндекса, оплачивает покупатель</p>
+        <ul class="delivery-list">
+          <li><svg class="icon"><use href="#i-check"/></svg>Курьер Яндекс Go заберёт заказ у меня и привезёт вам</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Стоимость — по тарифам Яндекса в день отправления</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Оплата доставки — курьеру или по ссылке из СМС</li>
+        </ul>
+        <div class="yandex-cta">
+          <a class="btn btn-yandex" href="delivery.html"><svg class="icon"><use href="#i-truck"/></svg>Как это работает →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="rushnyk" role="presentation"></div>
+
+<!-- ══════════ ОТЗЫВЫ — превью ══════════ -->
+<section class="section reviews" id="reviews-teaser">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Отзывы</p>
+        <h2 class="section-title">Доброе тепло <span class="hand">из Телеграм-канала</span></h2>
+      </div>
+      <a href="reviews.html" class="btn btn-primary">Все отзывы
+        <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+    </div>
+    <div class="reviews-row">
+      <figure class="review tilt-l">
+        <div class="review-stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div>
+        <blockquote>Котлеты — как в детстве у бабушки. Муж теперь требует только домашние, магазинные не ест.</blockquote>
+        <figcaption>Алёна <span>· 14-й микрорайон</span></figcaption>
+      </figure>
+      <figure class="review tilt-r">
+        <div class="review-stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div>
+        <blockquote>Беру блинчики с мясом на завтрак. Дети в восторге, всё свежее, чувствуется домашнее.</blockquote>
+        <figcaption>Марина <span>· 20-й район</span></figcaption>
+      </figure>
+      <figure class="review tilt-l">
+        <div class="review-stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div>
+        <blockquote>Заказывала к праздничному столу — гости спрашивали, где я купила. Буду брать снова.</blockquote>
+        <figcaption>Ольга <span>· Силино</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ФИНАЛЬНЫЙ CTA ══════════ -->
+<section class="section cta-banner">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <p class="hero-hand" style="transform:none;margin:0">а вечер сегодня может быть вкусным…</p>
+      <h2 class="section-title" style="color:#fdf8ec">Закажите домашнее —<br>и отдохните от плиты</h2>
+      <a href="menu.html" class="btn btn-gold btn-lg">Выбрать вкусное
+        <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="pp-footer"></div>
+<div id="pp-cart"></div>
+
+<script src="js/partials.js"></script>
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
