@@ -1,0 +1,18 @@
+# Cloudflare Worker — «Полуфабрикаты Зеленоград»
+# Подробная инструкция: см. README.md в корне репозитория
+name = "polufabrikaty-zelenograd"
+main = "src/worker.js"
+compatibility_date = "2025-07-18"
+workers_dev = true
+
+# Привязка базы D1 (создайте: npx wrangler d1 create polufabrikaty-db
+# и вставьте выданный database_id ниже)
+[[d1_databases]]
+binding = "DB"
+database_name = "polufabrikaty-db"
+database_id = "ВСТАВЬТЕ_DATABASE_ID_СЮДА"
+
+# Переменные, которые НЕ секретны (секреты — через: npx wrangler secret put ИМЯ)
+[vars]
+SITE_URL = "https://ВАШ-ЛОГИН.github.io/polufabrikaty-zelenograd/"
+ALLOWED_ORIGIN = "https://ВАШ-ЛОГИН.github.io"
