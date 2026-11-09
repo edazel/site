@@ -5,7 +5,8 @@
    в Telegram одним нажатием (кнопка в корзине).
    ═══════════════════════════════════════════════════════════════ */
 window.PZ_CONFIG = {
-  apiEndpoint: '',                       // например: 'https://polufabrikaty-worker.<аккаунт>.workers.dev/api/order'
+  apiEndpoint: 'https://polufabrikaty-zelenograd.nusihka72.workers.dev/api/order',
+                       // например: 'https://polufabrikaty-worker.<аккаунт>.workers.dev/api/order'
   telegramUser: 'elenafrol',             // личка Алены
   telegramChannel: 'edazel1',            // канал
   telegramBot: 'polufabrikzel_bot',      // бот-витрина
