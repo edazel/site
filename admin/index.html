@@ -267,6 +267,7 @@ button{font-family:'PT Sans';cursor:pointer}
         <div class="kv"><span>Получение</span><b id="dDelivery">—</b></div>
         <div class="kv"><span>Адрес</span><b id="dAddress">—</b></div>
         <div class="kv"><span>Оплата</span><b id="dPayment">—</b></div>
+        <div class="kv"><span>Предоплата 50%</span><b id="dPrepay">—</b></div>
         <div class="kv"><span>Когда</span><b id="dDate">—</b></div>
         <div class="kv"><span>Комментарий клиента</span><b id="dComment">—</b></div>
       </div>
@@ -556,7 +557,8 @@ function renderDetail() {
   const ph = $('#dPhone'); ph.textContent = o.phone; ph.href = 'tel:' + o.phone;
   $('#dDelivery').textContent = o.delivery === 'delivery' ? 'Доставка по Зеленограду' : 'Самовывоз · 20-й район';
   $('#dAddress').textContent = o.address || '—';
-  $('#dPayment').textContent = o.payment === 'sbp' ? 'СБП при получении' : 'Наличными при получении';
+  $('#dPayment').textContent = o.payment === 'sbp' ? 'остаток по СБП при получении' : 'остаток наличными при получении';
+  $('#dPrepay').textContent = fmt(Math.round((o.total || 0) / 2)) + ' — СБП при подтверждении';
   $('#dDate').textContent = o.created_at;
   $('#dComment').textContent = o.comment || '—';
   $('#dAdminNote').value = o.admin_note || '';

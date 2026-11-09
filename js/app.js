@@ -13,7 +13,7 @@ const ALL_SELLABLE = [...PRODUCTS, ...BUNDLES.map(b => ({
   id: b.id, title: b.title, unit: 'набор', price: b.price, desc: b.contents,
   img: b.img[0], cats: [], badge: null, cook: null, isBundle: true,
 }))];
-const GIFT_GOAL = 3000; // порог маленького подарка от Елены
+const GIFT_GOAL = 3000; // порог маленького подарка от Алены
 
 /* ───────────────── FAQ — данные ───────────────── */
 const FAQ = [
@@ -28,9 +28,9 @@ const FAQ = [
   { q: 'Как заказать доставку через Яндекс Доставку?',
     a: 'При оформлении выберите «Доставка» — и обязательно укажите адрес. Я упаковываю заказ и вызываю курьера Яндекс Доставки (Яндекс Go). Стоимость доставки оплачивает покупатель по тарифам Яндекса на момент отправления — курьеру при получении или по ссылке из СМС. В самовывозе всё бесплатно.' },
   { q: 'Возите ли за пределы Зеленограда?',
-    a: 'В пределах Зеленограда — по договорённости через Яндекс Доставку. В другие города — только самовывоз: по законам физики блинчики не любят длинных дорог, но Елена ненавидит их не меньше.' },
+    a: 'В пределах Зеленограда — по договорённости через Яндекс Доставку. В другие города — только самовывоз: по законам физики блинчики не любят длинных дорог, но Алена ненавидит их не меньше.' },
   { q: 'Как оплатить?',
-    a: 'Товар — при получении: наличными или переводом по СБП / по номеру телефона. Доставка Яндексом оплачивается отдельно — тоже Яндексу, а не мне.' },
+    a: 'Предоплата 50% от суммы заказа — обязательна: после оформления Алена связывается с вами и присылает реквизиты для перевода по СБП. Остаток 50% — при получении: наличными или по СБП. Доставка Яндексом оплачивается отдельно — Яндексу, а не мне.' },
 ];
 
 /* ───────────────── состояние корзины ───────────────── */
@@ -167,8 +167,8 @@ function updateGiftProgress() {
   box.classList.toggle('done', done);
   if (fill) fill.style.width = Math.min(100, (total / GIFT_GOAL) * 100) + '%';
   if (text) text.textContent = done
-    ? 'Подарок Елены уже в вашем пакете — приятного аппетита!'
-    : `До маленького подарка от Елены осталось ${fmt(left)}`;
+    ? 'Подарок Алены уже в вашем пакете — приятного аппетита!'
+    : `До маленького подарка от Алены осталось ${fmt(left)}`;
 }
 
 function addToCart(id, fromCard) {
@@ -349,7 +349,7 @@ function orderText() {
   return [
     'Заказ с сайта «Полуфабрикаты Зеленоград»', '',
     ...lines, '',
-    `Итого: ${fmt(cartTotal())}`,
+    `Итого: ${fmt(cartTotal())} (предоплата 50% — ${fmt(Math.round(cartTotal() / 2))})`,
     `Имя: ${$('#fName').value.trim()}`,
     `Телефон: ${phoneInput.value}`,
     `Получение: ${delivery}`,
@@ -403,7 +403,7 @@ if (form) form.addEventListener('submit', async e => {
 
   if (!sentToServer) {
     try { await navigator.clipboard.writeText(orderText()); } catch {}
-    showToast('Заявка скопирована — вставьте её Елене в Telegram');
+    showToast('Заявка скопирована — вставьте её Алене в Telegram');
     window.open('https://t.me/' + CFG.telegramUser, '_blank', 'noopener');
   }
 
@@ -453,11 +453,11 @@ function renderStock(items, updatedAt, { isFallback = false } = {}) {
   const rows = Array.isArray(items) ? items.slice(0, 8) : DEFAULT_STOCK;
   stockList.innerHTML = rows.length
     ? rows.map(i => `<li>${escapeHTML(i.name ?? i)}</li>`).join('')
-    : '<li class="stock-none">Сегодня всё разобрано — Елена уже лепит новую партию</li>';
+    : '<li class="stock-none">Сегодня всё разобрано — Алена уже лепит новую партию</li>';
   if (stockUpdated) {
     stockUpdated.innerHTML = updatedAt
       ? `обновлено <b>${escapeHTML(updatedAt)}</b>`
-      : 'список Елены — актуален на сегодня';
+      : 'список Алены — актуален на сегодня';
   }
 }
 const escapeHTML = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -468,7 +468,7 @@ async function fetchStock() {
     const base = CFG.apiEndpoint.replace(/\/api\/order\/?$/, '');
     const res = await fetch(base + '/api/public/settings/stock', { cache: 'no-store' });
     const data = await res.json();
-    // items === null → Елена ещё не заводила список: показываем дефолт
+    // items === null → Алена ещё не заводила список: показываем дефолт
     if (data.ok && Array.isArray(data.items)) renderStock(data.items, data.updated_at);
     else renderStock(DEFAULT_STOCK, null);
   } catch {

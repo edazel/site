@@ -1,12 +1,12 @@
 /* ═══════════════════════════════════════════════════════════════
    Настройки сайта «Полуфабрикаты Зеленоград»
    apiEndpoint появится после деплоя Cloudflare Worker (см. README.md).
-   Пока он пустой — заказ копируется в буфер и отправляется Елене
+   Пока он пустой — заказ копируется в буфер и отправляется Алене
    в Telegram одним нажатием (кнопка в корзине).
    ═══════════════════════════════════════════════════════════════ */
 window.PZ_CONFIG = {
   apiEndpoint: '',                       // например: 'https://polufabrikaty-worker.<аккаунт>.workers.dev/api/order'
-  telegramUser: 'elenafrol',             // личка Елены
+  telegramUser: 'elenafrol',             // личка Алены
   telegramChannel: 'edazel1',            // канал
   telegramBot: 'polufabrikzel_bot',      // бот-витрина
   phone: '+79776780374',

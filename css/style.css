@@ -541,7 +541,7 @@ body{animation:pageIn .45s var(--ease-out)}
 .btn-yandex:hover{background:#f5c400;transform:translateY(-2px)}
 .yandex-note{font-size:.74rem;color:var(--ink-soft)}
 
-/* ── прогресс «подарок от Елены» в корзине ── */
+/* ── прогресс «подарок от Алены» в корзине ── */
 .gift-progress{background:linear-gradient(120deg,#fdf3d8,#fdeacc);border:1px solid #ecd9a0;border-radius:16px;padding:.6rem .8rem;margin-bottom:.8rem}
 [data-theme="dark"] .gift-progress{background:linear-gradient(120deg,#3a3018,#33290f);border-color:#554a22}
 .gift-progress-top{display:flex;align-items:center;gap:.45rem;font-size:.8rem;color:#6b5410;font-weight:700;margin-bottom:.35rem}
@@ -667,3 +667,15 @@ body{animation:pageIn .45s var(--ease-out)}
   .bundle-mark{font-size:.6rem}
 }
 .stock-none{font-size:.8rem;color:var(--ink-soft)!important;font-style:italic;border-bottom:none!important}
+
+/* ── Предоплата 50% и кредит студии ── */
+.prepay-banner{display:flex;gap:1rem;align-items:flex-start;max-width:860px;margin:1.6rem auto 0;background:var(--green-soft,rgba(35,69,48,.08));border:1px solid var(--green);border-left:6px solid var(--green);border-radius:16px;padding:1rem 1.2rem;text-align:left}
+.prepay-banner-icon{flex:0 0 auto;width:44px;height:44px;border-radius:12px;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center}
+.prepay-banner b{display:block;font-size:1rem;color:var(--green-deep,var(--green));margin-bottom:.3rem}
+.prepay-banner span{font-size:.92rem;line-height:1.5}
+.checkout-note.prepay-note{background:rgba(255,214,102,.18);border:1px solid var(--gold);border-radius:12px;padding:.6rem .8rem}
+.footer-credit{border-top:1px solid rgba(244,233,214,.12);margin-top:.6rem;padding:.55rem 0 0;font-size:.78rem;color:rgba(244,233,214,.55);text-align:center}
+.footer-credit a{color:var(--gold);text-decoration:none;border-bottom:1px dotted currentColor}
+.footer-credit a:hover{color:#fff}
+.contact-card-static{cursor:default}
+@media (prefers-reduced-motion:no-preference){.prepay-banner{animation:revealUp .5s ease both}}

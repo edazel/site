@@ -61,7 +61,7 @@ const tabHTML = ['home', 'menu', 'delivery', 'contacts'].map(k => {
 }).join('') + `<button class="tab-item tab-cart" id="tabCartBtn" aria-label="Открыть корзину"><svg class="icon"><use href="#i-basket"/></svg><span>Корзина</span><b class="tab-cart-count" id="tabCartCount">0</b></button>`;
 
 const PZ_PARTIAL_HTML = {
-  ticker: `<div class="ticker" aria-hidden="true"><div class="ticker-track" id="tickerTrack"><span>Готовим малыми партиями</span><i>◆</i><span>Шоковая заморозка</span><i>◆</i><span>Только натуральные продукты</span><i>◆</i><span>Оплата при получении</span><i>◆</i><span>Самовывоз — бесплатно</span><i>◆</i><span>Доставка — Яндекс Доставка за счёт покупателя</span><i>◆</i></div></div><div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar" id="scrollProgress"></div></div>`,
+  ticker: `<div class="ticker" aria-hidden="true"><div class="ticker-track" id="tickerTrack"><span>Готовим малыми партиями</span><i>◆</i><span>Шоковая заморозка</span><i>◆</i><span>Только натуральные продукты</span><i>◆</i><span>Предоплата 50%</span><i>◆</i><span>Самовывоз — бесплатно</span><i>◆</i><span>Доставка — Яндекс Доставка за счёт покупателя</span><i>◆</i></div></div><div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar" id="scrollProgress"></div></div>`,
 
   header: `<header class="site-header" id="top"><div class="container header-inner">
     <a class="brand" href="index.html" aria-label="Полуфабрикаты Зеленоград — на главную"><span class="brand-badge"><img src="images/logo.jpg" alt="Полуфабрикаты Зеленоград — логотип" width="56" height="56"></span><span class="brand-text"><strong>Полуфабрикаты</strong><em>Зеленоград</em></span></a>
@@ -80,7 +80,7 @@ const PZ_PARTIAL_HTML = {
     <p>Домашняя еда из натуральных продуктов. Готовим малыми партиями, замораживаем шоково, отдаём с душой.</p>
     <div class="footer-socials">
       <a href="https://t.me/edazel1" target="_blank" rel="noopener" aria-label="Канал в Telegram"><svg class="icon"><use href="#i-tg"/></svg></a>
-      <a href="https://t.me/elenafrol" target="_blank" rel="noopener" aria-label="Написать Елене"><svg class="icon"><use href="#i-tg"/></svg><span class="hand">личка Елены</span></a>
+      <a href="https://t.me/elenafrol" target="_blank" rel="noopener" aria-label="Написать Алене"><svg class="icon"><use href="#i-tg"/></svg><span class="hand">личка Алены</span></a>
     </div>
   </div>
   <nav class="footer-nav" aria-label="Разделы">
@@ -95,7 +95,7 @@ const PZ_PARTIAL_HTML = {
     <a href="https://t.me/polufabrikzel_bot/app" target="_blank" rel="noopener">Онлайн-витрина в Telegram</a>
     <a href="admin/index.html">Панель заказов →</a>
   </div>
-</div><div class="container footer-bottom"><span>© 2026 «Полуфабрикаты Зеленоград» · Все права защищены</span><span class="hand">сделано с любовью на домашней кухне</span></div></footer>`,
+</div><div class="container footer-bottom"><span>© 2026 «Полуфабрикаты Зеленоград» · Все права защищены</span><span class="hand">сделано с любовью на домашней кухне</span></div><div class="container footer-credit"><span>Сайт создан студией Антона Рясова · <a href="https://antonryasov.github.io/site/#/home" target="_blank" rel="noopener">antonryasov.github.io ↗</a></span></div></footer>`,
 
   cart: `<div class="overlay" id="cartOverlay" hidden></div>
 <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
@@ -128,21 +128,21 @@ const PZ_PARTIAL_HTML = {
         <label class="field"><span>Комментарий к заказу</span><textarea name="comment" id="fComment" rows="2" placeholder="Например: позвонить за час, без лука в котлетах…"></textarea></label>
         <fieldset class="seg">
           <legend>Оплата</legend>
-          <label class="seg-option mini"><input type="radio" name="payment" value="cash" checked><span><svg class="icon"><use href="#i-wallet"/></svg>Наличными при получении</span></label>
-          <label class="seg-option mini"><input type="radio" name="payment" value="sbp"><span><svg class="icon"><use href="#i-shield"/></svg>Переводом по СБП при получении</span></label>
+          <label class="seg-option mini"><input type="radio" name="payment" value="cash" checked><span><svg class="icon"><use href="#i-wallet"/></svg>Остаток наличными при получении</span></label>
+          <label class="seg-option mini"><input type="radio" name="payment" value="sbp"><span><svg class="icon"><use href="#i-shield"/></svg>Остаток по СБП при получении</span></label>
         </fieldset>
         <label class="consent"><input type="checkbox" id="fConsent" required><span>Я соглашаюсь на обработку телефона для оформления заказа</span></label>
         <input type="text" name="website" id="fWebsite" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitOrderBtn">Отправить заказ · <span id="submitTotal">0 ₽</span></button>
-        <p class="checkout-note">Стоимость Яндекс Доставки оплачивается отдельно по тарифам Яндекса — курьеру или по ссылке из СМС.</p>
+        <p class="checkout-note prepay-note"><b>Предоплата 50% от суммы заказа обязательна.</b> После оформления Алена свяжется с вами и пришлёт реквизиты для СБП; остаток — при получении. Стоимость доставки Яндексом оплачивается отдельно по тарифам Яндекса.</p>
       </form>
     </div>
-    <div class="cart-footer" id="cartFooter"><div class="totals-row"><span>Итого по меню</span><strong id="cartTotal">0 ₽</strong></div><p class="totals-note">Доставка Яндексом оплачивается отдельно по тарифам Яндекса.</p></div>
+    <div class="cart-footer" id="cartFooter"><div class="totals-row"><span>Итого по меню</span><strong id="cartTotal">0 ₽</strong></div><p class="totals-note"><b>Аванс 50%</b> — СБП при подтверждении, остаток — при получении. Доставка Яндексом оплачивается отдельно по тарифам Яндекса.</p></div>
   </div>
   <div class="cart-view success-view" id="successView" hidden>
     <svg class="success-check" viewBox="0 0 72 72" fill="none"><circle class="sc-circle" cx="36" cy="36" r="31" stroke="var(--green)" stroke-width="4"/><path class="sc-tick" d="M22 37.5 32 47 51 26" stroke="var(--green)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     <h3>Заявка отправлена!</h3>
-    <p id="successText">Елена получит его в Telegram и свяжется с вами для подтверждения.</p>
+    <p id="successText">Алена получит заявку в Telegram, свяжется с вами для подтверждения и пришлёт реквизиты на предоплату 50%.</p>
     <p class="success-order" id="successOrderId" hidden>Номер заказа: <b></b></p>
     <button class="btn btn-primary" id="successCloseBtn">Отлично, жду звонка</button>
   </div>
